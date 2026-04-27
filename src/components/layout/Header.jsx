@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   const logoStyle = {
-    width: '40px',
+    width: '80px',
     height: '40px',
     backgroundColor: '#3b82f6',
     borderRadius: '8px',
@@ -101,7 +101,7 @@ const Header = () => {
       <div style={containerStyle}>
         <div style={leftSectionStyle}>
           <div style={logoStyle}>
-            A
+            Holiday
           </div>
           <h1 style={titleStyle}>Admin Dashboard</h1>
         </div>
