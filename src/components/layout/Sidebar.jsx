@@ -88,9 +88,9 @@ const Sidebar = () => {
                 to={item.path}
                 style={getLinkStyle(isActive(item.path))}
               >
-                <span style={{ marginRight: '12px' }}>
-                  {item.label === 'Dashboard' ? ' dashboard ' : item.label === 'Bookings' ? ' bookings ' : ' details '}
-                </span>
+                {/* <span style={{ marginRight: '12px' }}>
+                  {item.label}
+                </span> */}
                 <span style={{ fontWeight: '500' }}>{item.label}</span>
               </Link>
             </li>
@@ -103,7 +103,7 @@ const Sidebar = () => {
           onClick={handleLogout}
           style={logoutButtonStyle}
         >
-          <span style={{ marginRight: '8px' }}> logout </span>
+          
           Logout
         </button>
       </div>
