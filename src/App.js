@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Details from "./pages/Details";
 import Bookings from "./pages/Bookings";
-import Layout from "./components/layout/Layout";
 
 function App() {
   return (
