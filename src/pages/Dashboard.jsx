@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Layout from '../components/layout/Layout';
 import Card from '../components/common/Card';
 import Input from '../components/common/Input';
 import Button from '../components/common/Button';
@@ -38,27 +37,23 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <Layout>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
-          <div style={{ fontSize: '16px' }}>Loading...</div>
-        </div>
-      </Layout>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
+        <div style={{ fontSize: '16px' }}>Loading...</div>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <Layout>
-        <Card>
-          <div style={{ textAlign: 'center' }}>
-            <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#dc2626', marginBottom: '8px' }}>Error Loading Data</h3>
-            <p style={{ color: '#dc2626', marginBottom: '16px' }}>{error}</p>
-            <Button onClick={() => window.location.reload()}>
-              Try Again
-            </Button>
-          </div>
-        </Card>
-      </Layout>
+      <Card>
+        <div style={{ textAlign: 'center' }}>
+          <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#dc2626', marginBottom: '8px' }}>Error Loading Data</h3>
+          <p style={{ color: '#dc2626', marginBottom: '16px' }}>{error}</p>
+          <Button onClick={() => window.location.reload()}>
+            Try Again
+          </Button>
+        </div>
+      </Card>
     );
   }
 
@@ -118,7 +113,7 @@ const Dashboard = () => {
   };
 
   return (
-    <Layout>
+    <div>
       <div style={headerStyle}>
         <h1 style={titleStyle}>Dashboard</h1>
         <p style={subtitleStyle}>Welcome back! Here's what's happening with your platform today.</p>
@@ -176,7 +171,7 @@ const Dashboard = () => {
           <p style={{ color: '#6b7280' }}>Chart integration coming soon</p>
         </div>
       </Card>
-    </Layout>
+    </div>
   );
 };
 

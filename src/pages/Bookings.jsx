@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Layout from '../components/layout/Layout';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 import Input from '../components/common/Input';
@@ -120,85 +119,83 @@ const Bookings = () => {
   };
 
   return (
-    <Layout>
-      <div style={containerStyle}>
-        <div style={headerStyle}>
-          <div>
-            <h1 style={titleStyle}>Bookings</h1>
-            <p style={subtitleStyle}>Manage and track all room bookings</p>
-          </div>
-          <Button variant="primary">
-            New Booking
-          </Button>
-        </div>
-
-        <div style={searchContainerStyle}>
-          <Input
-            type="text"
-            placeholder="Search bookings..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-
+    <div style={containerStyle}>
+      <div style={headerStyle}>
         <div>
-          <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '16px' }}>
-            Showing {filteredBookings.length} of {bookings.length} bookings
-          </p>
-          
-          {filteredBookings.length === 0 ? (
-            <Card>
-              <div style={emptyStateStyle}>
-                <p style={{ fontSize: '18px', fontWeight: '500', marginBottom: '8px' }}>No bookings found</p>
-                <p>Try adjusting your search terms</p>
-              </div>
-            </Card>
-          ) : (
-            <div style={bookingsContainerStyle}>
-              {filteredBookings.map((booking) => (
-                <Card key={booking.id}>
-                  <div style={bookingCardStyle}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                      <h3 style={bookingNameStyle}>{booking.name}</h3>
-                      {getStatusBadge(booking.status)}
-                    </div>
-                    
-                    <div>
-                      <p style={bookingInfoStyle}><strong>Date:</strong> {booking.date}</p>
-                      <p style={bookingInfoStyle}><strong>Time:</strong> {booking.time}</p>
-                      <p style={bookingInfoStyle}><strong>Location:</strong> {booking.location}</p>
-                      <p style={bookingInfoStyle}><strong>Attendees:</strong> {booking.attendees}</p>
-                    </div>
-                    
-                    <div style={actionsContainerStyle}>
-                      <Button size="sm" variant="outline">
-                        Edit
-                      </Button>
-                      {booking.status !== 'cancelled' && (
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          onClick={() => handleCancel(booking.id)}
-                        >
-                          Cancel
-                        </Button>
-                      )}
+          <h1 style={titleStyle}>Bookings</h1>
+          <p style={subtitleStyle}>Manage and track all room bookings</p>
+        </div>
+        <Button variant="primary">
+          New Booking
+        </Button>
+      </div>
+
+      <div style={searchContainerStyle}>
+        <Input
+          type="text"
+          placeholder="Search bookings..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '16px' }}>
+          Showing {filteredBookings.length} of {bookings.length} bookings
+        </p>
+        
+        {filteredBookings.length === 0 ? (
+          <Card>
+            <div style={emptyStateStyle}>
+              <p style={{ fontSize: '18px', fontWeight: '500', marginBottom: '8px' }}>No bookings found</p>
+              <p>Try adjusting your search terms</p>
+            </div>
+          </Card>
+        ) : (
+          <div style={bookingsContainerStyle}>
+            {filteredBookings.map((booking) => (
+              <Card key={booking.id}>
+                <div style={bookingCardStyle}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                    <h3 style={bookingNameStyle}>{booking.name}</h3>
+                    {getStatusBadge(booking.status)}
+                  </div>
+                  
+                  <div>
+                    <p style={bookingInfoStyle}><strong>Date:</strong> {booking.date}</p>
+                    <p style={bookingInfoStyle}><strong>Time:</strong> {booking.time}</p>
+                    <p style={bookingInfoStyle}><strong>Location:</strong> {booking.location}</p>
+                    <p style={bookingInfoStyle}><strong>Attendees:</strong> {booking.attendees}</p>
+                  </div>
+                  
+                  <div style={actionsContainerStyle}>
+                    <Button size="sm" variant="outline">
+                      Edit
+                    </Button>
+                    {booking.status !== 'cancelled' && (
                       <Button 
                         size="sm" 
-                        variant="danger"
-                        onClick={() => handleDelete(booking.id)}
+                        variant="outline"
+                        onClick={() => handleCancel(booking.id)}
                       >
-                        Delete
+                        Cancel
                       </Button>
-                    </div>
+                    )}
+                    <Button 
+                      size="sm" 
+                      variant="danger"
+                      onClick={() => handleDelete(booking.id)}
+                    >
+                      Delete
+                    </Button>
                   </div>
-                </Card>
-              ))}
-            </div>
-          )}
-        </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
-    </Layout>
+    </div>
   );
 };
 

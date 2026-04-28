@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Layout from '../components/layout/Layout';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 
@@ -183,120 +182,118 @@ const Details = () => {
   };
 
   return (
-    <Layout>
-      <div style={containerStyle}>
-        <div style={headerStyle}>
-          <div>
-            <h1 style={titleStyle}>User Details</h1>
-            <p style={subtitleStyle}>Detailed information for {user.name}</p>
-          </div>
-          <div style={{ display: 'flex', gap: '12px' }}>
-            <Button variant="outline">
-              Edit Profile
-            </Button>
-            <Button variant="outline">
-              Settings
-            </Button>
-            <Button>
-              Export
-            </Button>
-          </div>
+    <div style={containerStyle}>
+      <div style={headerStyle}>
+        <div>
+          <h1 style={titleStyle}>User Details</h1>
+          <p style={subtitleStyle}>Detailed information for {user.name}</p>
         </div>
-
-        <div style={profileContainerStyle}>
-          <div>
-            <Card>
-              <div style={profileCardStyle}>
-                <div style={avatarStyle}>
-                  {user.name.charAt(0).toUpperCase()}
-                </div>
-                <h2 style={userNameStyle}>{user.name}</h2>
-                <p style={userRoleStyle}>{user.role}</p>
-                <span style={statusBadgeStyle}>
-                  {user.status}
-                </span>
-                
-                <div style={infoContainerStyle}>
-                  <div style={infoItemStyle}>
-                    <strong>Email:</strong> {user.email}
-                  </div>
-                  <div style={infoItemStyle}>
-                    <strong>Phone:</strong> {user.phone}
-                  </div>
-                  <div style={infoItemStyle}>
-                    <strong>Location:</strong> {user.location}
-                  </div>
-                  <div style={infoItemStyle}>
-                    <strong>Joined:</strong> {new Date(user.joinDate).toLocaleDateString()}
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          <div>
-            <div style={statsContainerStyle}>
-              <Card>
-                <div style={statCardStyle}>
-                  <div style={statNumberStyle}>{user.projects}</div>
-                  <div style={statLabelStyle}>Projects</div>
-                </div>
-              </Card>
-              
-              <Card>
-                <div style={statCardStyle}>
-                  <div style={statNumberStyle}>{user.completedTasks}</div>
-                  <div style={statLabelStyle}>Completed</div>
-                </div>
-              </Card>
-              
-              <Card>
-                <div style={statCardStyle}>
-                  <div style={statNumberStyle}>{user.teamSize}</div>
-                  <div style={statLabelStyle}>Team Size</div>
-                </div>
-              </Card>
-              
-              <Card>
-                <div style={statCardStyle}>
-                  <div style={statNumberStyle}>{user.performance}%</div>
-                  <div style={statLabelStyle}>Performance</div>
-                </div>
-              </Card>
-            </div>
-
-            <Card>
-              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1f2937', marginBottom: '16px' }}>
-                Department Information
-              </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-                <div>
-                  <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '4px' }}>Department</p>
-                  <p style={{ fontWeight: '500', color: '#1f2937' }}>{user.department}</p>
-                </div>
-                <div>
-                  <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '4px' }}>Role</p>
-                  <p style={{ fontWeight: '500', color: '#1f2937' }}>{user.role}</p>
-                </div>
-              </div>
-            </Card>
-
-            <Card>
-              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1f2937', marginBottom: '16px' }}>
-                Skills & Expertise
-              </h3>
-              <div style={skillsContainerStyle}>
-                {user.skills.map((skill, index) => (
-                  <span key={index} style={skillBadgeStyle}>
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </Card>
-          </div>
+        <div style={{ display: 'flex', gap: '12px' }}>
+          <Button variant="outline">
+            Edit Profile
+          </Button>
+          <Button variant="outline">
+            Settings
+          </Button>
+          <Button>
+            Export
+          </Button>
         </div>
       </div>
-    </Layout>
+
+      <div style={profileContainerStyle}>
+        <div>
+          <Card>
+            <div style={profileCardStyle}>
+              <div style={avatarStyle}>
+                {user.name.charAt(0).toUpperCase()}
+              </div>
+              <h2 style={userNameStyle}>{user.name}</h2>
+              <p style={userRoleStyle}>{user.role}</p>
+              <span style={statusBadgeStyle}>
+                {user.status}
+              </span>
+              
+              <div style={infoContainerStyle}>
+                <div style={infoItemStyle}>
+                  <strong>Email:</strong> {user.email}
+                </div>
+                <div style={infoItemStyle}>
+                  <strong>Phone:</strong> {user.phone}
+                </div>
+                <div style={infoItemStyle}>
+                  <strong>Location:</strong> {user.location}
+                </div>
+                <div style={infoItemStyle}>
+                  <strong>Joined:</strong> {new Date(user.joinDate).toLocaleDateString()}
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        <div>
+          <div style={statsContainerStyle}>
+            <Card>
+              <div style={statCardStyle}>
+                <div style={statNumberStyle}>{user.projects}</div>
+                <div style={statLabelStyle}>Projects</div>
+              </div>
+            </Card>
+            
+            <Card>
+              <div style={statCardStyle}>
+                <div style={statNumberStyle}>{user.completedTasks}</div>
+                <div style={statLabelStyle}>Completed</div>
+              </div>
+            </Card>
+            
+            <Card>
+              <div style={statCardStyle}>
+                <div style={statNumberStyle}>{user.teamSize}</div>
+                <div style={statLabelStyle}>Team Size</div>
+              </div>
+            </Card>
+            
+            <Card>
+              <div style={statCardStyle}>
+                <div style={statNumberStyle}>{user.performance}%</div>
+                <div style={statLabelStyle}>Performance</div>
+              </div>
+            </Card>
+          </div>
+
+          <Card>
+            <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1f2937', marginBottom: '16px' }}>
+              Department Information
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div>
+                <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '4px' }}>Department</p>
+                <p style={{ fontWeight: '500', color: '#1f2937' }}>{user.department}</p>
+              </div>
+              <div>
+                <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '4px' }}>Role</p>
+                <p style={{ fontWeight: '500', color: '#1f2937' }}>{user.role}</p>
+              </div>
+            </div>
+          </Card>
+
+          <Card>
+            <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1f2937', marginBottom: '16px' }}>
+              Skills & Expertise
+            </h3>
+            <div style={skillsContainerStyle}>
+              {user.skills.map((skill, index) => (
+                <span key={index} style={skillBadgeStyle}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
   );
 };
 
