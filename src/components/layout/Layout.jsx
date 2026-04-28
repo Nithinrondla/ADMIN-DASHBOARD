@@ -13,7 +13,9 @@ const Layout = ({ children }) => {
   const contentContainerStyle = {
     display: 'flex',
     flex: 1,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    marginLeft: '256px',
+    marginTop: '73px'
   };
 
   const mainStyle = {
@@ -31,8 +33,8 @@ const Layout = ({ children }) => {
   return (
     <div style={layoutStyle}>
       <Header />
+      <Sidebar />
       <div style={contentContainerStyle}>
-        <Sidebar />
         <main style={mainStyle}>
           <div style={maxWidthStyle}>
             {children}

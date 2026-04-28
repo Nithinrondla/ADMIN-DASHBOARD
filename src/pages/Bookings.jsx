@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Layout from '../components/layout/Layout';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 import Input from '../components/common/Input';
@@ -119,7 +120,8 @@ const Bookings = () => {
   };
 
   return (
-    <div style={containerStyle}>
+    <Layout>
+      <div style={containerStyle}>
       <div style={headerStyle}>
         <div>
           <h1 style={titleStyle}>Bookings</h1>
@@ -195,7 +197,8 @@ const Bookings = () => {
           </div>
         )}
       </div>
-    </div>
+      </div>
+    </Layout>
   );
 };
 

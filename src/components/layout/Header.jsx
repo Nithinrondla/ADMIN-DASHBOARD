@@ -5,8 +5,10 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const headerStyle = {
-    position: 'sticky',
+    position: 'fixed',
     top: 0,
+    left: '256px',
+    right: 0,
     backgroundColor: '#ffffff',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
     zIndex: 50,

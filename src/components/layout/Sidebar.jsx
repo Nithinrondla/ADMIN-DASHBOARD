@@ -28,10 +28,14 @@ const Sidebar = () => {
     width: '256px',
     backgroundColor: '#1f2937',
     color: 'white',
-    height: '100%',
+    height: '100vh',
     boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    zIndex: 40
   };
 
   const navStyle = {
